@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --body-font: 'Lato', Verdana, Helvetica, sans-serif;
+  --mono-font: 'Lato', Verdana, Helvetica, sans-serif;
+  --bg: #ffffff;
+  --paper: #fbf4f5;
+  --ink: #1a1a1a;
+  --muted: #6f6f6f;
+  --line: rgba(26, 26, 26, 0.13);
+  --link: #8e1322;
+  --link-hover: #5e0c16;
+  --accent: #8e1322;
+  --accent-soft: rgba(142, 19, 34, 0.10);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--bg);
+  color: var(--ink);
+  font-size: 15.5px;
+  line-height: 1.72;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 52px 28px 40px;
+}
+
+a { color: var(--link); text-decoration: none; border-bottom: 1px solid rgba(142, 19, 34, 0.28); }
+a:focus, a:hover { color: var(--link-hover); border-bottom-color: rgba(110, 12, 22, 0.5); }
+
+p { margin: 0 0 17px; }
+strong { font-weight: 700; }
+
+/* ---------- Header ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-text { flex: 1; min-width: 0; }
+
+.name {
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+}
+
+.bio {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.headshot { flex: 0 0 142px; }
+.headshot img {
+  width: 142px;
+  height: 142px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  border: 1px solid var(--line);
+  filter: saturate(0.96);
+}
+
+.links { font-family: var(--mono-font); font-size: 12.5px; margin: 0; }
+.links a { border-bottom: 0; }
+.links .sep { color: var(--muted); opacity: 0.5; margin: 0 8px; }
+
+/* ---------- Sections ---------- */
+section { margin-top: 46px; }
+
+.sec-head {
+  font-family: var(--mono-font);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sec-head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.lead { font-size: 16.5px; line-height: 1.75; }
+
+/* ---------- Publications ---------- */
+.pub { padding: 17px 0; border-bottom: 1px solid var(--line); }
+.pub:last-child { border-bottom: 0; }
+
+.pub-title { font-weight: 700; font-size: 15.5px; line-height: 1.45; }
+.pub-title a { border-bottom: 0; }
+.pub-title a:hover { border-bottom: 1px solid rgba(110, 12, 22, 0.5); }
+
+.pub-authors { color: #45413a; font-size: 13.5px; margin-top: 4px; }
+.pub-authors .me { color: var(--ink); font-weight: 700; }
+
+.pub-meta {
+  margin-top: 7px;
+  font-family: var(--mono-font);
+  font-size: 11.5px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.venue { color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+.pub-meta .dot { margin: 0 8px; opacity: 0.5; }
+.pub-meta a { color: var(--muted); border-bottom: 0; }
+.pub-meta a:hover { color: var(--link-hover); }
+
+/* ---------- Thesis card ---------- */
+.thesis {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 20px 22px;
+}
+.thesis .kicker {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 7px;
+}
+.thesis .thesis-title { font-weight: 700; font-size: 17px; line-height: 1.4; }
+.thesis p { margin: 9px 0 0; font-size: 14.5px; color: #36332c; }
+
+/* ---------- Cell simulation (blended, interactive) ---------- */
+.sim {
+  position: relative;
+  margin-top: 40px;
+  cursor: crosshair;
+}
+#cell-canvas { display: block; width: 100%; height: 380px; }
+
+.sim-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* ---------- Sailing ---------- */
+.sailing { margin-top: 40px; }
+.sailing img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  display: block;
+}
+.sailing figcaption {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono-font);
+  font-size: 11.5px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .wrap { padding: 22px 20px 36px; }
+  .header { flex-direction: column-reverse; align-items: flex-start; gap: 18px; }
+  .name { font-size: 28px; }
+  .headshot { flex-basis: auto; }
+  #cell-canvas { height: 300px; }
+  .footer { flex-direction: column; gap: 6px; }
+}
