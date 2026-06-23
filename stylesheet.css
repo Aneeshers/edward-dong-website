@@ -116,13 +116,6 @@ section { margin-top: 46px; }
   gap: 16px;
 }
 
-.sec-head::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
-
 .lead { font-size: 16.5px; line-height: 1.75; }
 
 /* ---------- Publications ---------- */
@@ -148,24 +141,17 @@ section { margin-top: 46px; }
 .pub-meta a { color: var(--muted); border-bottom: 0; }
 .pub-meta a:hover { color: var(--link-hover); }
 
-/* ---------- Thesis card ---------- */
-.thesis {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
-  border-radius: 4px;
-  padding: 20px 22px;
-}
+/* ---------- Selected talk ---------- */
+.thesis { padding: 0; }
 .thesis .kicker {
-  font-family: var(--mono-font);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 7px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 5px;
 }
-.thesis .thesis-title { font-weight: 700; font-size: 17px; line-height: 1.4; }
-.thesis p { margin: 9px 0 0; font-size: 14.5px; color: #36332c; }
+.thesis .thesis-title { font-weight: 700; font-size: 15.5px; line-height: 1.45; }
+.thesis .thesis-title a { border-bottom: 0; }
+.thesis .thesis-title a:hover { border-bottom: 1px solid rgba(110, 12, 22, 0.5); }
+.thesis p { margin: 8px 0 0; font-size: 14.5px; }
 
 /* ---------- Cell simulation (blended, interactive) ---------- */
 .sim {
