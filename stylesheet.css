@@ -3,11 +3,11 @@
 :root {
   --body-font: 'Lato', Verdana, Helvetica, sans-serif;
   --mono-font: 'Lato', Verdana, Helvetica, sans-serif;
-  --bg: #ffffff;
-  --paper: #fbf4f5;
-  --ink: #1a1a1a;
-  --muted: #6f6f6f;
-  --line: rgba(26, 26, 26, 0.13);
+  --bg: #f3e9d6;
+  --paper: #ede0c8;
+  --ink: #33291c;
+  --muted: #7c6a52;
+  --line: rgba(74, 58, 34, 0.18);
   --link: #8e1322;
   --link-hover: #5e0c16;
   --accent: #8e1322;
